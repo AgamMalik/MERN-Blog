@@ -54,6 +54,9 @@ export const signin = async (req, res, next) => {
       process.env.JWT_SECRET
     );
 
+    // everything is under validUser._doc
+    // here we are separating password
+    // pass is an alias for password here
     const { password: pass, ...rest } = validUser._doc;
 
     res
