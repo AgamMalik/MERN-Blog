@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 
 export default function Header() {
   const { currentUser } = useSelector((state) => state.user);
+
+  // for active path name
   const path = useLocation().pathname;
 
   return (
@@ -30,6 +32,8 @@ export default function Header() {
       <Button className="w-12 h-10 lg:hidden " color="gray" pill>
         <AiOutlineSearch />
       </Button>
+
+      {/* moon button and singin button before menu in small screen and after menu in bigger screen */}
       <div className="flex gap-2 md:order-2">
         <Button className="w-12 h-10 hidden sm:inline" color="gray" pill>
           <FaMoon />
@@ -54,7 +58,7 @@ export default function Header() {
               <Dropdown.Item>Profile</Dropdown.Item>
             </Link>
             <Dropdown.Divider />
-            <Dropdown.Item >Sign out</Dropdown.Item>
+            <Dropdown.Item>Sign out</Dropdown.Item>
           </Dropdown>
         ) : (
           <Link to="/sign-in">
@@ -66,6 +70,8 @@ export default function Header() {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
+
+        {/* means keep it active when path === "/" etc etc */}
         <Navbar.Link active={path === "/"} as={"div"}>
           <Link to="/">Home</Link>
         </Navbar.Link>
